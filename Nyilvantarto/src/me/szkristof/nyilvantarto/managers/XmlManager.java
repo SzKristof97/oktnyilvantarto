@@ -1,6 +1,5 @@
 package me.szkristof.nyilvantarto.managers;
 
-import java.text.DateFormat;
 import java.util.Date;
 import java.util.List;
 
