@@ -2,10 +2,6 @@ package me.szkristof.nyilvantarto.models;
 
 import java.util.Date;
 
-/**
- * Erre az osztályra azért van szükség, hogy meg lehessen határozni
- * a {@link Worker} osztályban a munkaköröket és a fizetéseket.
- */
 public class Person implements Comparable<Person> {
     //#region Properties
     protected String name;

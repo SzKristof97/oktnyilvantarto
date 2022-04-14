@@ -1,0 +1,12 @@
+package me.szkristof.nyilvantarto.enums;
+
+public enum MENU {
+    MAINMENU,
+    PERSONMANAGERMENU,
+    PERSONADDINGMENU,
+    PERSONREMOVINGMENU,
+    PERSONSEARCHINGMENU,
+    PERSONEDITINGMENU,
+    PERSONLISTINGMENU,
+    EXIT
+}
