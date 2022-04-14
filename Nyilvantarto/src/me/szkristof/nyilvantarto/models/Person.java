@@ -6,7 +6,7 @@ import java.util.Date;
  * Erre az osztályra azért van szükség, hogy meg lehessen határozni
  * a {@link Worker} osztályban a munkaköröket és a fizetéseket.
  */
-public class Person {
+public class Person implements Comparable<Person> {
     //#region Properties
     protected String name;
     protected int age;
@@ -110,5 +110,19 @@ public class Person {
                 ", isFired=" + isFired +
                 '}';
     }
+
+    /**
+     * A {@link Person} osztály egyik {@link Comparable} interfész implementációjának
+     * megvalósítása. Összehasonlítja a megadott {@link Person} objektum nevét a
+     * jelenlegi {@link Person} objektum nevével.
+     * 
+     * @param o A másik {@link Person} objektum, amivel összehasonlítjuk a nevét.
+     */
+    @Override
+    public int compareTo(Person o) {
+        return this.name.toLowerCase().compareTo(o.name.toLowerCase());
+    }
     //#endregion
+
+    
 }
