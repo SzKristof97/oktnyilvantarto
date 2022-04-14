@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Persons>
+    <Workers>
+        <Worker age="32" hiredDate="1649971756684" isFired="false" name="Marika" post="TEACHER"/>
+        <Worker age="27" hiredDate="1649971771059" isFired="false" name="Eszter" post="SECRETARY"/>
+        <Worker age="45" hiredDate="1649971789706" isFired="false" name="Helga" post="PRINCIPAL"/>
+    </Workers>
+    <Students>
+        <Student age="15" className="6/a" hiredDate="1649971821035" isFired="false" name="Barni"/>
+        <Student age="17" className="7/a" hiredDate="1649971845578" isFired="false" name="Gandalf"/>
+    </Students>
+</Persons>

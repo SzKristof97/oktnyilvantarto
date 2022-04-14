@@ -21,6 +21,9 @@ public class PersonManager {
     public PersonManager() {
         workers = new ArrayList<Worker>();
         students = new ArrayList<Student>();
+
+        LoadDatas();
+        ConsoleManager.ReadString("A fájl betöltése sikeres volt!");
     }
 
     //#endregion
@@ -226,5 +229,29 @@ public class PersonManager {
         }
         return false;
     }
+    
+    /**
+     * A {@link PersonManager} osztály {@link #workers} és {@link #students} lástáját lementi!,
+     */
+    public boolean Save() {
+        return XmlManager.WriteDataToXml("nyilvantarto.xml", workers, students);
+    }
+
+    /**
+     * A {@link PersonManager} osztály {@link #workers} és {@link #students} lástáját betölti!
+     */
+    public void LoadDatas(){
+        List<Worker> workers = XmlManager.ReadWorkerDataFromXml("nyilvantarto.xml");
+        List<Student> students = XmlManager.ReadStudentDataFromXml("nyilvantarto.xml");
+
+        workers.forEach((worker) -> {
+            this.workers.add(worker);
+        });
+
+        students.forEach((student) -> {
+            this.students.add(student);
+        });
+    }
+
     //#endregion
 }

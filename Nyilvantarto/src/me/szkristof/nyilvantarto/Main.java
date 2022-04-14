@@ -59,6 +59,12 @@ public class Main {
                 case PERSONLISTINGMENU:
                     currentMenu = PersonListingMenu();
                     break;
+                case SAVEMENU:
+                    currentMenu = SaveMenu();
+                    break;
+                case UPDATEDBMENU:
+                    currentMenu = UpdateDBMenu();
+                    break;
                 default:
                 case EXIT:
                     isRunning = false;
@@ -76,7 +82,8 @@ public class Main {
     private MENU MainMenu(){
         ConsoleManager.WriteMessage("===== [ Fő Menü ] =====\n");
         ConsoleManager.WriteMessage("1. Személyek kezelése\n");
-        ConsoleManager.WriteMessage("2. Kilépés\n");
+        ConsoleManager.WriteMessage("2. Mentés\n");
+        ConsoleManager.WriteMessage("3. Kilépés\n");
 
         int menuChoice = ConsoleManager.ReadInt("Válassz menüpontot: ");
 
@@ -84,6 +91,8 @@ public class Main {
             case 1:
                 return MENU.PERSONMANAGERMENU;
             case 2:
+                return MENU.SAVEMENU;
+            case 3:
                 return MENU.EXIT;
             default:
                 ConsoleManager.WriteMessage("Hibás menüpont!");
@@ -239,7 +248,7 @@ public class Main {
             ConsoleManager.Clear();
             ConsoleManager.WriteMessage("\n===== [ Találatok ] =====\n");
             for (Person p : person) {
-                ConsoleManager.WriteMessage(p.toString());
+                ConsoleManager.WriteMessage(p.toString() + "\n");
             }
         }
 
@@ -262,11 +271,11 @@ public class Main {
             ConsoleManager.Clear();
             ConsoleManager.WriteMessage("\n===== [ Dolgozók ] =====\n");
             for (Worker w : workers) {
-                ConsoleManager.WriteMessage(w.toString());
+                ConsoleManager.WriteMessage(w.toString() + "\n");
             }
             ConsoleManager.WriteMessage("\n===== [ Diákok ] =====\n");
             for (Student s : students) {
-                ConsoleManager.WriteMessage(s.toString());
+                ConsoleManager.WriteMessage(s.toString() + "\n");
             }
         }
 
@@ -283,7 +292,6 @@ public class Main {
         String name = ConsoleManager.ReadString("Adja meg a személy nevét: ");
         if (name.isEmpty() || name == null) return MENU.PERSONMANAGERMENU;
 
-        // Check the person is a worker or a student
         boolean isWorker = personManager.IsWorker(name);
         boolean isStudent = personManager.IsStudent(name);
 
@@ -372,6 +380,33 @@ public class Main {
 
         ConsoleManager.ReadString("\nNyomj ENTER-t a folytatáshoz...");
         return MENU.PERSONMANAGERMENU;
+    }
+    
+    /**
+     * Mentés menü
+     * @return A következő menü
+     */
+    private MENU SaveMenu(){
+        ConsoleManager.WriteMessage("\n===== [ Mentés ] =====\n");
+        boolean isSaved = personManager.Save();
+
+        if (isSaved) {
+            ConsoleManager.WriteMessage("Sikeres mentés!");
+        } else {
+            ConsoleManager.WriteMessage("\nNem sikerült menteni a fájlt!");
+        }
+
+        ConsoleManager.ReadString("\nNyomj ENTER-t a folytatáshoz...");
+        return MENU.MAINMENU;
+    }
+    
+    /**
+     * Frissítés
+     * @return A következő menü
+     */
+    private MENU UpdateDBMenu(){
+        personManager.LoadDatas();
+        return MENU.MAINMENU;
     }
     //#endregion
 }
