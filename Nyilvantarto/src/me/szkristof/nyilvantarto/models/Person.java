@@ -99,4 +99,16 @@ public class Person {
         this.age = age;
     }
     //#endregion
+
+    //#region Override methods
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", hiredDate=" + hiredDate +
+                ", isFired=" + isFired +
+                '}';
+    }
+    //#endregion
 }
