@@ -31,6 +31,7 @@ public class Main {
      */
     private void run() {
         personManager = new PersonManager();
+        currentMenu = MENU.MAINMENU;
 
         boolean isRunning = true;
 
@@ -358,7 +359,7 @@ public class Main {
 
         boolean isFired = ConsoleManager.ReadBoolean("Ki lett rúgva? (I/N): ");
 
-        Student newStudent = new Student(name, newAge, student.getHiredDate(), isFired, newClassName));
+        Student newStudent = new Student(name, newAge, student.getHiredDate(), isFired, newClassName);
 
         boolean isEdited = personManager.EditStudent(student, newStudent);
 
