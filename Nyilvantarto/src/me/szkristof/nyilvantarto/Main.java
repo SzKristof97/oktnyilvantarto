@@ -36,6 +36,7 @@ public class Main {
         boolean isRunning = true;
 
         while (isRunning) {
+            ConsoleManager.Clear();
             switch (currentMenu) {
                 case MAINMENU:
                     currentMenu = MainMenu();
@@ -161,7 +162,7 @@ public class Main {
         
         ConsoleManager.WriteMessage("\n===== [ Beosztások ] =====\n");
         for (int i = 0; i < WORKERPOST.values().length; i++) {
-            ConsoleManager.WriteMessage((i + 1) + ") " + WORKERPOST.values()[i].toString() + " - Bér: " + WORKERPOST.values()[i].getSalary() + " Ft");
+            ConsoleManager.WriteMessage((i + 1) + ") " + WORKERPOST.values()[i].toString() + " - Bér: " + WORKERPOST.values()[i].getSalary() + " Ft\n");
         }
 
         int postChoice = ConsoleManager.ReadInt("\nVálassz beosztást: ");
@@ -174,7 +175,7 @@ public class Main {
         } else {
             ConsoleManager.WriteMessage("\nHiba történt!");
         }
-        ConsoleManager.WriteMessage("\nNyomjon ENTER-t a folytatáshoz!");
+        ConsoleManager.ReadString("\nNyomjon ENTER-t a folytatáshoz!");
     }
 
     /**
@@ -198,7 +199,7 @@ public class Main {
         } else {
             ConsoleManager.WriteMessage("\nHiba történt!");
         }
-        ConsoleManager.WriteMessage("\nNyomjon ENTER-t a folytatáshoz!");
+        ConsoleManager.ReadString("\nNyomjon ENTER-t a folytatáshoz!");
     }
     
     /**
@@ -242,7 +243,7 @@ public class Main {
             }
         }
 
-        ConsoleManager.WriteMessage("\nNyomjon ENTER-t a folytatáshoz...");
+        ConsoleManager.ReadString("\nNyomjon ENTER-t a folytatáshoz...");
         return MENU.PERSONMANAGERMENU;
     }
     
@@ -269,7 +270,7 @@ public class Main {
             }
         }
 
-        ConsoleManager.WriteMessage("\nNyomjon ENTER-t a folytatáshoz...");
+        ConsoleManager.ReadString("\nNyomjon ENTER-t a folytatáshoz...");
         return MENU.PERSONMANAGERMENU;
     }
     
@@ -297,7 +298,7 @@ public class Main {
             ConsoleManager.WriteMessage("Nem sikerült szerkeszteni a személyt!");
         }
 
-        ConsoleManager.WriteMessage("\nNyomjon ENTER-t a folytatáshoz...");
+        ConsoleManager.ReadString("\nNyomjon ENTER-t a folytatáshoz...");
         return MENU.PERSONMANAGERMENU;
     }
 
@@ -314,18 +315,18 @@ public class Main {
         if (newName.isEmpty() || newName == null) newName = name;
 
         int newAge = ConsoleManager.ReadInt("Adja meg az új életkorát (vagy hadja üresen): ");
-        if (newAge == 0) newAge = worker.getAge();
+        if (newAge == -1) newAge = worker.getAge();
 
         boolean isFired = ConsoleManager.ReadBoolean("Ki lett rúgva? (I/N): ");
 
         ConsoleManager.WriteMessage("\n===== [ Beosztások ] =====\n");
         for (int i = 0; i < WORKERPOST.values().length; i++) {
-            ConsoleManager.WriteMessage((i + 1) + ") " + WORKERPOST.values()[i].toString() + " - Bér: " + WORKERPOST.values()[i].getSalary() + " Ft");
+            ConsoleManager.WriteMessage((i + 1) + ") " + WORKERPOST.values()[i].toString() + " - Bér: " + WORKERPOST.values()[i].getSalary() + " Ft\n");
         }
 
         int postChoice = ConsoleManager.ReadInt("\nVálassz beosztást(vagy hadja üresen): ");
         
-        Worker newWorker = new Worker(name, newAge, worker.getHiredDate(), isFired, (postChoice > 0 ? WORKERPOST.values()[postChoice - 1]:worker.getPost()));
+        Worker newWorker = new Worker(newName, newAge, worker.getHiredDate(), isFired, (postChoice > 0 ? WORKERPOST.values()[postChoice - 1]:worker.getPost()));
 
         boolean isEdited = personManager.EditWorker(worker, newWorker);
 
@@ -352,14 +353,14 @@ public class Main {
         if (newName.isEmpty() || newName == null) newName = name;
 
         int newAge = ConsoleManager.ReadInt("Adja meg az új életkorát (vagy hadja üresen): ");
-        if (newAge == 0) newAge = student.getAge();
+        if (newAge == -1) newAge = student.getAge();
 
         String newClassName = ConsoleManager.ReadString("Adja meg az új osztály nevét (vagy hadja üresen): ");
         if (newClassName.isEmpty() || newClassName == null) newClassName = student.getClassName();
 
         boolean isFired = ConsoleManager.ReadBoolean("Ki lett rúgva? (I/N): ");
 
-        Student newStudent = new Student(name, newAge, student.getHiredDate(), isFired, newClassName);
+        Student newStudent = new Student(newName, newAge, student.getHiredDate(), isFired, newClassName);
 
         boolean isEdited = personManager.EditStudent(student, newStudent);
 
