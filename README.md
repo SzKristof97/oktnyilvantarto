@@ -18,18 +18,18 @@ a program indulásakor megpróbálja innen beolvasni az eddig eltároltakat!
 Első sorban a főmenüt hozza be, ahol 4 opciónk van,
 
 ***Főmenü***
-1. Személyek kezelése&ensp;&nbsp;**Ez átvisz minket egy kezelő menübe**
-2. Mentés&emsp;&emsp;&emsp;&ensp;&nbsp;**Kimenti a jelenleg letárolt személyeket a "nyilvantarto.xml" fájlba**
-3. Frissítés            **Beolvassa a "nyilvantarto.xml" fájlt és ha van új személy, hozzá adja**
-4. Kilépés              **Kilép a programból, elég egyértelmű. :wink:**
+1. Személyek kezelése -> **Ez átvisz minket egy kezelő menübe**
+2. Mentés -> **Kimenti a jelenleg letárolt személyeket a "nyilvantarto.xml" fájlba**
+3. Frissítés -> **Beolvassa a "nyilvantarto.xml" fájlt és ha van új személy, hozzá adja**
+4. Kilépés -> **Kilép a programból, elég egyértelmű. :wink:**
 
 ***Személyek kezelése***
-1. Személy hozzáadása   **Új személy felvétele a listába**
-2. Személy törlése      **Személy törlése a listából (pontos név megadása szükséges)**
-3. Személy keresése     **Pontos név nem kötelező, ha egy részét írjuk be, minden találatot kiír**
-4. Személy szerkesztése **Személy adatainak szerkesztése (pontos név megadása szükséges)**
-5. Személyek listázása  **Minden személy listázása (felbontja dolgozókra és diákokra)**
-6. Visssza a főmenübe   **Vissza a főmenübe, nem igényel túl sok magyarázatot :grin:**
+1. Személy hozzáadása -> **Új személy felvétele a listába**
+2. Személy törlése -> **Személy törlése a listából (pontos név megadása szükséges)**
+3. Személy keresése -> **Pontos név nem kötelező, ha egy részét írjuk be, minden találatot kiír**
+4. Személy szerkesztése -> **Személy adatainak szerkesztése (pontos név megadása szükséges)**
+5. Személyek listázása -> **Minden személy listázása (felbontja dolgozókra és diákokra)**
+6. Visssza a főmenübe -> **Vissza a főmenübe, nem igényel túl sok magyarázatot :grin:**
 
 Jelenleg a program ennyiből áll, további információk az egyes metódusokról, osztályokról,
 a kódon belül javadoc segítségével megadásra kerültek, így mindenről lehet tudni, hogy pontosan mit csinál.
