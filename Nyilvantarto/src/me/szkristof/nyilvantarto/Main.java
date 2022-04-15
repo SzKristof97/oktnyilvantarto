@@ -328,7 +328,7 @@ public class Main {
         int newAge = ConsoleManager.ReadInt("Adja meg az új életkorát (vagy hadja üresen): ");
         if (newAge == -1) newAge = worker.getAge();
 
-        boolean isFired = ConsoleManager.ReadBoolean("Ki lett rúgva? (I/N): ");
+        boolean isFired = ConsoleManager.ReadBoolean("Ki lett rúgva? (I/N): ", "I", "N");
 
         ConsoleManager.WriteMessage("\n===== [ Beosztások ] =====\n");
         for (int i = 0; i < WORKERPOST.values().length; i++) {
@@ -369,7 +369,7 @@ public class Main {
         String newClassName = ConsoleManager.ReadString("Adja meg az új osztály nevét (vagy hadja üresen): ");
         if (newClassName.isEmpty() || newClassName == null) newClassName = student.getClassName();
 
-        boolean isFired = ConsoleManager.ReadBoolean("Ki lett rúgva? (I/N): ");
+        boolean isFired = ConsoleManager.ReadBoolean("Ki lett rúgva? (I/N): ", "I", "N");
 
         Student newStudent = new Student(newName, newAge, student.getHiredDate(), isFired, newClassName);
 

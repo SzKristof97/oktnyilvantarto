@@ -66,12 +66,18 @@ public class ConsoleManager {
      * @param message Kiírandó üzenet a konzolra
      * @return Igaz ha igaz/i, hamis ha hamis/h
      */
-    public static boolean ReadBoolean(String message){
+    public static boolean ReadBoolean(String message, String trueString, String falseString){
         boolean input = false;
 
         try{
             String sinput = ReadString(message);
-            input = Boolean.parseBoolean(sinput);
+            if(sinput.toLowerCase().equals(trueString.toLowerCase())){
+                input = true;
+            }else if(sinput.toLowerCase().equals(falseString.toLowerCase())){
+                input = false;
+            }else{
+                input = false;
+            }
         }catch(Exception e){
             input = false;
         }

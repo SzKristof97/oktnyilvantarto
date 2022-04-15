@@ -4,6 +4,8 @@
         <Worker age="32" hiredDate="1649971756684" isFired="false" name="Marika" post="TEACHER"/>
         <Worker age="27" hiredDate="1649971771059" isFired="false" name="Eszter" post="SECRETARY"/>
         <Worker age="45" hiredDate="1649971789706" isFired="false" name="Helga" post="PRINCIPAL"/>
+        <Worker age="34" hiredDate="1650014264035" isFired="true" name="Tibor" post="TEACHER"/>
+        <Worker age="37" hiredDate="1650014264035" isFired="false" name="Helga" post="TEACHER"/>
     </Workers>
     <Students>
         <Student age="15" className="6/a" hiredDate="1649971821035" isFired="false" name="Barni"/>
