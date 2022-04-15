@@ -18,8 +18,8 @@ a program indulásakor megpróbálja innen beolvasni az eddig eltároltakat!
 Első sorban a főmenüt hozza be, ahol 4 opciónk van,
 
 ***Főmenü***
-1. Személyek kezelése   **Ez átvisz minket egy kezelő menübe**
-2. Mentés               **Kimenti a jelenleg letárolt személyeket a "nyilvantarto.xml" fájlba**
+1. Személyek kezelése&ensp;&nbsp;**Ez átvisz minket egy kezelő menübe**
+2. Mentés&emsp;&emsp;&emsp;&ensp;&nbsp;**Kimenti a jelenleg letárolt személyeket a "nyilvantarto.xml" fájlba**
 3. Frissítés            **Beolvassa a "nyilvantarto.xml" fájlt és ha van új személy, hozzá adja**
 4. Kilépés              **Kilép a programból, elég egyértelmű. :wink:**
 
@@ -34,9 +34,10 @@ Első sorban a főmenüt hozza be, ahol 4 opciónk van,
 Jelenleg a program ennyiből áll, további információk az egyes metódusokról, osztályokról,
 a kódon belül javadoc segítségével megadásra kerültek, így mindenről lehet tudni, hogy pontosan mit csinál.
 
+## U.I.
 Mivel a kód Visual Studio Code-ban készült, így helyenként feltűnhetnek ezek az inline kommentek:
-//#region "leírás"
-//#endregion
+- //#region "leírás"
+- //#endregion
 
 Ezek arra valók, hogy össze lehessen csukni a kódban az ezen kapcsolók közé megadott kódot, így rendezettebben néz ki!
 Ha más fejlesztői környezetben kerül a kód behelyezésre, nem feltétenül működnek ezek az utasítások, bár gondot ott sem okozhatnak!
