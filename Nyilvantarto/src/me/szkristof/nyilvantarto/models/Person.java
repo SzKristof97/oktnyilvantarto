@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class Person implements Comparable<Person> {
     //#region Properties
+    protected String verboseName = "Személy";
     protected String name;
     protected int age;
     protected Date hiredDate;
@@ -99,12 +100,16 @@ public class Person implements Comparable<Person> {
     //#region Override methods
     @Override
     public String toString() {
-        return "Person{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                ", hiredDate=" + hiredDate +
-                ", isFired=" + isFired +
-                '}';
+        String elbocsajtva;
+        if (isFired){elbocsajtva = "Igaz";}
+        else{elbocsajtva = "Hamis";}
+
+
+        return "Kategoria: " + verboseName
+                + ", Név: " + name
+                + ", Életkor: " + age
+                + ", Felvételt nyert (Dátum): " + hiredDate
+                + ", Elbocsjátva " + elbocsajtva;
     }
 
     /**

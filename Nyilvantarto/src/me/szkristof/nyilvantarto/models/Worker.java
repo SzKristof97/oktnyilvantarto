@@ -22,6 +22,7 @@ public class Worker extends Person{
      */
     public Worker(String name, int age, Date hiredDate, boolean isFired, WORKERPOST post) {
         super(name, age, hiredDate, isFired);
+        this.verboseName = "Dolgozó";
         this.post = post;
     }
 
@@ -49,13 +50,7 @@ public class Worker extends Person{
 
     @Override
     public String toString() {
-        return "Worker{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                ", hiredDate=" + hiredDate +
-                ", isFired=" + isFired +
-                ", post=" + post +
-                '}';
+        return super.toString() + ", Post: " + post;
     }
 
     //#endregion

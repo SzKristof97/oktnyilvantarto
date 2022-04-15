@@ -3,7 +3,6 @@ package me.szkristof.nyilvantarto.models;
 import java.util.Date;
 
 public class Student extends Person{
-
     //#region Properties
     private String className;
     //#endregion
@@ -20,6 +19,7 @@ public class Student extends Person{
      */
     public Student(String name, int age, Date hiredDate, boolean isFired, String className) {
         super(name, age, hiredDate, isFired);
+        this.verboseName = "Tanuló";
         this.className = className;
     }
     //#endregion
@@ -47,13 +47,7 @@ public class Student extends Person{
     //#region Overrides
     @Override
     public String toString() {
-        return "Student{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                ", hiredDate=" + hiredDate +
-                ", isFired=" + isFired +
-                ", className='" + className + '\'' +
-                '}';
+        return super.toString() + ", Osztály: " + className;
     }
     //#endregion
 }
