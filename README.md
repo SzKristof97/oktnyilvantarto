@@ -3,9 +3,9 @@
 ## A program célja
 Nyílvántartja egy oktatási intézmény dolgozóit és diákjait
 Jelenleg 3 különböző dolgozót képes kezelni,
-PRINCIPAL = Igazgató
-SECRETARY = Titkár
-TEACHER = Tanár
+- PRINCIPAL -> Igazgató
+- SECRETARY -> Titkár
+- TEACHER   -> Tanár
 
 A diákoknak pedig osztály nevet lehet meghatározni.
 A dolgozók beosztása pedig tárolja a fizetésüket is, jelenleg
