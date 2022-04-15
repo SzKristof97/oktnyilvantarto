@@ -8,5 +8,8 @@
     <Students>
         <Student age="15" className="6/a" hiredDate="1649971821035" isFired="false" name="Barni"/>
         <Student age="17" className="7/a" hiredDate="1649971845578" isFired="false" name="Gandalf"/>
+        <Student age="18" className="7/b" hiredDate="1649971845578" isFired="false" name="Roland"/>
+        <Student age="18" className="7/b" hiredDate="1649971845578" isFired="false" name="Gerald"/>
+        <Student age="17" className="6/b" hiredDate="1649971845578" isFired="false" name="Rebeka"/>
     </Students>
 </Persons>

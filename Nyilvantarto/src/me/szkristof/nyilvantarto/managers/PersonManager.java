@@ -23,7 +23,6 @@ public class PersonManager {
         students = new ArrayList<Student>();
 
         LoadDatas();
-        ConsoleManager.ReadString("A fájl betöltése sikeres volt!");
     }
 
     //#endregion
@@ -36,6 +35,9 @@ public class PersonManager {
      * @return igaz ha sikeresen hozzáadtuk, hamis ha nem!
      */
     public boolean AddWorker(Worker worker) {
+        if (workers.stream().anyMatch(w -> w.getName().toLowerCase().equals(worker.getName().toLowerCase()))) {
+            return false;
+        }
         return workers.add(worker);
     }
 
@@ -46,7 +48,7 @@ public class PersonManager {
      * @return igaz ha sikeresen törölte, hamis ha nem!
      */
     public boolean RemoveWorker(Worker worker) {
-        return workers.remove(worker);
+        return RemoveWorker(worker.getName());
     }
 
     /**
@@ -56,12 +58,14 @@ public class PersonManager {
      * @return igaz ha sikeresen törölte, hamis ha nem!
      */
     public boolean RemoveWorker(String name) {
+        Worker foundedW = null;
         for (Worker worker : workers) {
-            if (worker.getName().equals(name)) {
-                return workers.remove(worker);
+            if (worker.getName().toLowerCase().equals(name.toLowerCase())) {
+                foundedW = worker;
+                break;
             }
         }
-        return false;
+        return foundedW == null ? false : workers.remove(foundedW);
     }
 
     /**
@@ -71,6 +75,9 @@ public class PersonManager {
      * @return igaz ha sikeresen hozzáadtuk, hamis ha nem!
      */
     public boolean AddStudent(Student student) {
+        if (students.stream().anyMatch(w -> w.getName().toLowerCase().equals(student.getName().toLowerCase()))) {
+            return false;
+        }
         return students.add(student);
     }
     
@@ -241,15 +248,15 @@ public class PersonManager {
      * A {@link PersonManager} osztály {@link #workers} és {@link #students} lástáját betölti!
      */
     public void LoadDatas(){
-        List<Worker> workers = XmlManager.ReadWorkerDataFromXml("nyilvantarto.xml");
-        List<Student> students = XmlManager.ReadStudentDataFromXml("nyilvantarto.xml");
+        List<Worker> _workers = XmlManager.ReadWorkerDataFromXml("nyilvantarto.xml");
+        List<Student> _students = XmlManager.ReadStudentDataFromXml("nyilvantarto.xml");
 
-        workers.forEach((worker) -> {
-            this.workers.add(worker);
+        _workers.forEach((worker) -> {
+            AddWorker(worker);
         });
 
-        students.forEach((student) -> {
-            this.students.add(student);
+        _students.forEach((student) -> {
+            AddStudent(student);
         });
     }
 

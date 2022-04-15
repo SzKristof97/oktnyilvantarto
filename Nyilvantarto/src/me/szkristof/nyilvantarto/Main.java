@@ -83,7 +83,8 @@ public class Main {
         ConsoleManager.WriteMessage("===== [ Fő Menü ] =====\n");
         ConsoleManager.WriteMessage("1. Személyek kezelése\n");
         ConsoleManager.WriteMessage("2. Mentés\n");
-        ConsoleManager.WriteMessage("3. Kilépés\n");
+        ConsoleManager.WriteMessage("3. Frissítés\n");
+        ConsoleManager.WriteMessage("4. Kilépés\n");
 
         int menuChoice = ConsoleManager.ReadInt("Válassz menüpontot: ");
 
@@ -93,6 +94,8 @@ public class Main {
             case 2:
                 return MENU.SAVEMENU;
             case 3:
+                return MENU.UPDATEDBMENU;
+            case 4:
                 return MENU.EXIT;
             default:
                 ConsoleManager.WriteMessage("Hibás menüpont!");
@@ -261,14 +264,14 @@ public class Main {
      * @return A következő menü
      */
     public MENU PersonListingMenu(){
+        ConsoleManager.Clear();
         ConsoleManager.WriteMessage("===== [ Személyek listázása ] =====\n");
         List<Worker> workers = personManager.GetWorkers();
         List<Student> students = personManager.GetStudents();
 
         if (workers.size() == 0 && students.size() == 0) {
-            ConsoleManager.WriteMessage("Nincs személy!");
+            ConsoleManager.WriteMessage("Nincs felvett személy!");
         } else {
-            ConsoleManager.Clear();
             ConsoleManager.WriteMessage("\n===== [ Dolgozók ] =====\n");
             for (Worker w : workers) {
                 ConsoleManager.WriteMessage(w.toString() + "\n");
