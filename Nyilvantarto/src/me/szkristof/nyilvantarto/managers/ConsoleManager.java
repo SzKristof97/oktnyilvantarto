@@ -89,7 +89,22 @@ public class ConsoleManager {
      * Törli a konzolról a képernyőt.
      */
     public static void Clear() {
-        System.out.print("\033[H\033[2J");
+        String os = System.getProperty("os.name");
+
+        if (os.contains("Windows")) {
+            try {
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+            } catch (Exception e) {
+                WriteMessage("Failed to clear console.");
+            }
+        } else {
+            try {
+                Runtime.getRuntime().exec("clear");
+            } catch (Exception e) {
+                WriteMessage("Failed to clear console.");
+            }
+        }
+
         System.out.flush();
     }
 }

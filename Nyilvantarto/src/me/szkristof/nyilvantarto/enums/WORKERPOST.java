@@ -18,8 +18,7 @@ public enum WORKERPOST {
     public int getSalary() {
         return salary;
     }
-
-    // Create a parse method
+    
     public static WORKERPOST parse(String name) {
         for (WORKERPOST post : WORKERPOST.values()) {
             if (post.name().equals(name)) {
